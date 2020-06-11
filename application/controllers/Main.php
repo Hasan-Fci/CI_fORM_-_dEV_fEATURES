@@ -11,6 +11,7 @@ class Main extends CI_Controller {
 		// echo $this->main_model->test_main();
 		$data['title'] = 'This is page Title';
 		$data['test1'] = 'THis is test1 test';
+		$data['model_data'] = $this->main_model->test_main();
 		$this->load->view('main_view', $data);
 	}
 
