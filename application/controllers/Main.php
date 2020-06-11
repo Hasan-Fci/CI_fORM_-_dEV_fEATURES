@@ -6,6 +6,9 @@ class Main extends CI_Controller {
 	{
 		echo "test main <br>";
 		$this->test1();
+		$this->load->model('main_model');
+		echo "<br>";
+		echo $this->main_model->test_main();
 	}
 
 	public function test1(){
