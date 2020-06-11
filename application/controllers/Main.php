@@ -4,18 +4,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 	public function index()
 	{
-		// echo "test main <br>";
-		// $this->test1();
-		$this->load->model('main_model');
-		// echo "<br>";
-		// echo $this->main_model->test_main();
-		$data['title'] = 'This is page Title';
-		$data['test1'] = 'THis is test1 test';
-		$data['model_data'] = $this->main_model->test_main();
-		$this->load->view('main_view', $data);
+		$this->load->view('main_view');
 	}
 
-	public function test1(){
-		echo "This is test1 function";
+	public function form_validation(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('first_name', 'First Name', 'required|alpha');
+		$this->form_validation->set_rules('last_name', 'Last Name', 'required|alpha');
+		
+		if ($this->form_validation->run()) {
+			$this->load->model("main_model");
+			$data  = array(
+				"first_name" => $this->input->post('first_name'),
+				"last_name" => $this->input->post('last_name')
+			);
+			$this->main_model->insert_data($data);
+			redirect(base_url(). "main/inserted");
+		}else{
+			$this->index();
+		}
+	}
+
+	public function inserted(){
+		$this->index();
 	}
 }
