@@ -4,11 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Main extends CI_Controller {
 	public function index()
 	{
-		echo "test main <br>";
-		$this->test1();
+		// echo "test main <br>";
+		// $this->test1();
 		$this->load->model('main_model');
-		echo "<br>";
-		echo $this->main_model->test_main();
+		// echo "<br>";
+		// echo $this->main_model->test_main();
+		$this->load->view('main_view');
 	}
 
 	public function test1(){
