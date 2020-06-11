@@ -9,7 +9,9 @@ class Main extends CI_Controller {
 		$this->load->model('main_model');
 		// echo "<br>";
 		// echo $this->main_model->test_main();
-		$this->load->view('main_view');
+		$data['title'] = 'This is page Title';
+		$data['test1'] = 'THis is test1 test';
+		$this->load->view('main_view', $data);
 	}
 
 	public function test1(){

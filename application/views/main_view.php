@@ -5,6 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<h3>THis is main view page</h3>
+	<h3><?php echo $title; ?></h3>
+	<p><?php echo $test1; ?></p>
 </body>
 </html>
