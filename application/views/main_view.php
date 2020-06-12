@@ -24,6 +24,39 @@
 				<input type="submit" name="insert" value="Insert" class="btn btn-info">
 			</div>
 		</form>
+
+		<br><br>
+		<h3>Fetch Data in Database</h3>
+		<div class="table-responsive">
+			<table class="table table-bordered">
+				<tr>
+					<td>ID</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+				</tr>
+				<?php
+					if ($fetch_data->num_rows() > 0) {
+						foreach ($fetch_data->result() as $key => $row) {
+				?>		
+						<tr>
+							<td><?php echo $row->id; ?></td>
+							<td><?php echo $row->first_name; ?></td>
+							<td><?php echo $row->last_name; ?></td>
+						</tr>
+				<?php
+					}
+					
+					}else{
+				?>		
+						?>
+							<tr>
+								<td colspan="3">No data found</td>
+							</tr>
+						<?php
+					}
+				?>
+			</table>
+		</div>
 	</div>
 </body>
 </html>
